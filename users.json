@@ -1,0 +1,20 @@
+{
+  "Users": [
+    {
+      "Fullname": "Joseph Nwosu",
+      "Email": "eneitodo2019@gmail.com",
+      "Acct. No.": "0785020570",
+      "Password": "Malaysha2@",
+      "Confirm Password": "Malaysha2@",
+      "id": 1
+    },
+    {
+      "Fullname": "Imam Azumi",
+      "Email": "eneitodo2019@gmail.com",
+      "Acct. No.": "0987654321",
+      "Password": "Malaysha2@",
+      "Confirm Password": "Malaysha2@",
+      "id": 2
+    }
+  ]
+}
