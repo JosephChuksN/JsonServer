@@ -64,10 +64,6 @@ const signUpHandler = () =>{
         invalid(confirmPass)
         isInputValid = false
 }
-if(isInputValid){
-    passValues()
-}
-
 }
 
 const passValues = () =>{
@@ -86,10 +82,13 @@ const passValues = () =>{
      })
      .then(res => {return res.json()})
 
-
-
-
 }
+
+const loader = () =>{
+    document.querySelector(".d-flex").style.display = "block"
+    document.querySelector("container").style.display = "none"
+}
+
 
 //  const inputEntries = () => {
 //     return Array.from(document.querySelectorAll(".form"));
@@ -114,9 +113,21 @@ const passValues = () =>{
 //      myForm.reset();
     
 // }
+
+const mainLoad = () =>{
+  return  setTimeout(loader(), 3000);
+}
+
 myForm.addEventListener("submit", (e) =>{
     e.preventDefault();
     signUpHandler();
+    
+if(isInputValid){
+    passValues()
+    mainLoad()
+    
+}
+
 
   
    
