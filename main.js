@@ -19,9 +19,9 @@ const isPassValid = (pass) =>{
 let isInputValid = false;
  let inputss
 
- let users =[]
- let usersJson 
- let usersJsonObj
+//  let users =[]
+//  let usersJson 
+//  let usersJsonObj = {}
  const invalid = (inputt) =>{
      inputt.nextElementSibling.innerHTML = `<p style="color: red;">This field is required</P`
      inputt.style.borderColor = "red"
@@ -64,7 +64,29 @@ const signUpHandler = () =>{
         invalid(confirmPass)
         isInputValid = false
 }
+
+
+mapValues()
 }
+
+const mapValues = () => {
+    fetch(`http://localhost:3000/Users`)
+    .then((response) => response.json())
+    .then((data) => {
+       data.map(datas => {
+       
+        if(datas.Email === email.value){
+            email.nextElementSibling.innerHTML = `<p style="color: red;">This email already exist</P`
+               
+            }else{
+                passValues
+            }
+})
+})
+
+
+}
+
 
 const passValues = () =>{
     formValues = new FormData(myForm)
@@ -80,14 +102,17 @@ const passValues = () =>{
   body: JSON.stringify(formInputs)   
    
      })
-     .then(res => {return res.json()})
+     .then(res => {return res.json()});
+     
+
+    
 
 }
 
-const loader = () =>{
-    document.querySelector(".d-flex").style.display = "block"
-    document.querySelector("container").style.display = "none"
-}
+// const loader = () =>{
+//     document.querySelector(".d-flex").style.display = "block"
+//     document.querySelector("container").style.display = "none"
+// }
 
 
 //  const inputEntries = () => {
@@ -110,26 +135,23 @@ const loader = () =>{
 
 //      usersJson = JSON.stringify(inputss)
 //      usersJsonObj = JSON.parse(usersJson)
+//      users.push(usersJsonObj)
 //      myForm.reset();
     
-// }
+//  }
 
-const mainLoad = () =>{
-  return  setTimeout(loader(), 3000);
-}
+// // const mainLoad = () =>{
+// //   return  setTimeout(loader(), 3000);
+// // }
 
 myForm.addEventListener("submit", (e) =>{
     e.preventDefault();
     signUpHandler();
-    
-if(isInputValid){
-    passValues()
-    mainLoad()
-    
-}
+ 
+ 
 
 
-  
+ 
    
    
 })
